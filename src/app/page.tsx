@@ -56,7 +56,7 @@ export default function Root() {
             if (!label && !id_card) return;
             if (confirm("ยืนยันเพิ่มรายการ")) {
               const arr = [
-                ...JSON.parse(localStorage.getItem("array_authen")!),
+                ...JSON.parse(localStorage.getItem("array_authen") || "[]"),
                 { id: new Date().getTime(), label, id_card },
               ];
               localStorage.setItem("array_authen", JSON.stringify(arr));
